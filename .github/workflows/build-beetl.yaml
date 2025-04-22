@@ -23,12 +23,12 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: python-mssql
-          file: python-mssql/Dockerfile
+          context: beetl
+          file: beetl/Dockerfile
           tags: |
-            ghcr.io/hoglandets-it/devcontainer-python-mssql:3.12-bookworm
-            ghcr.io/hoglandets-it/devcontainer-python-mssql:bookworm
-            ghcr.io/hoglandets-it/devcontainer-python-mssql:latest
+            ghcr.io/hoglandets-it/devcontainer-beetl:3.12-bookworm
+            ghcr.io/hoglandets-it/devcontainer-beetl:bookworm
+            ghcr.io/hoglandets-it/devcontainer-beetl:latest
           push: true
           build-args: |
             PYTHON_VERSION=3.12
