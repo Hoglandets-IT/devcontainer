@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: python-mssql
+          file: python-mssql/Dockerfile
+          tags: ghcr.io/${{ github.repository_owner }}/mssql-odbc:latest
+          push: true
+          build-args: |
+            PYTHON_VERSION=3.12
+            OS_VERSION=bookworm
