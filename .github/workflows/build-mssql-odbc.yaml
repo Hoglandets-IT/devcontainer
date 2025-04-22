@@ -24,7 +24,10 @@ jobs:
         with:
           context: python-mssql
           file: python-mssql/Dockerfile
-          tags: ghcr.io/${{ github.repository_owner }}/mssql-odbc:latest
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:3.12-bookworm
+            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:bookworm
+            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:latest
           push: true
           build-args: |
             PYTHON_VERSION=3.12
