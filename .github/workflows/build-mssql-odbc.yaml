@@ -25,9 +25,9 @@ jobs:
           context: python-mssql
           file: python-mssql/Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:3.12-bookworm
-            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:bookworm
-            ghcr.io/${{ github.repository_owner }}/devcontainer-python-mssql:latest
+            ghcr.io/hoglandets-it/devcontainer-python-mssql:3.12-bookworm
+            ghcr.io/hoglandets-it/devcontainer-python-mssql:bookworm
+            ghcr.io/hoglandets-it/devcontainer-python-mssql:latest
           push: true
           build-args: |
             PYTHON_VERSION=3.12
